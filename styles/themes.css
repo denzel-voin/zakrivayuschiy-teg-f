@@ -12,6 +12,7 @@
   --backgrount-imige: repeating-linear-gradient(90deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px),
   repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px),
   linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
+  --stroke-color: #FFFF;
 }
 
 :root.theme-dark {
@@ -22,6 +23,7 @@
   --backgrount-imige: repeating-linear-gradient(90deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px),
   repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px),
   linear-gradient(180deg, #007f0c 0%, #007f0c 0.01%, #004306 100%);
+  --stroke-color: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,5 +35,6 @@
     --backgrount-imige: repeating-linear-gradient(90deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px),
     repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px),
     linear-gradient(180deg, #007f0c 0%, #007f0c 0.01%, #004306 100%);
+    --stroke-color: #000000;
   }
 }

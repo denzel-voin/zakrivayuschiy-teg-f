@@ -36,11 +36,17 @@
   gap: 25px;
   margin: 100px auto;
   padding: 14px 0;
-  width: clamp(23.438rem, 16.2859rem + 30.5157vw, 43.75rem);
   font-family: var(--accent-font);
 }
 
+.container-width {
+  width: clamp(23.438rem, 16.2859rem + 30.5157vw, 43.75rem);
+  border: 2px solid var(--accent-color);
+}
+
 .header__wrapper {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   gap: 20px;
 }
@@ -71,6 +77,7 @@
 
 .header__title {
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
 }
 
 @keyframes choice {
@@ -80,5 +87,80 @@
 
   to {
     translate: 6px 0;
+  }
+}
+
+/*section cards*/
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--background-color);
+}
+
+.card__title {
+  font-size: 18px;
+  margin: 3px 10px;
+  font-weight: var(--font-weight-bold);
+}
+
+.card__image {
+  max-width: 100%;
+}
+
+.card__description {
+  font-size: 18px;
+  font-weight: var(--font-weight-regular);
+}
+
+.card__description-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+}
+
+.card__like-button {
+  margin-left: auto;
+  display: flex;
+  background-color: transparent;
+  border: none;
+  gap: 12px;
+}
+
+.button__text {
+  font-size: 14px;
+  border: 2px solid var(--accent-color);
+  padding: 9px 17px;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-decoration {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  color: var(--accent-font);
+  opacity: .5;
+  mix-blend-mode: hard-light;
+  text-shadow:  0 0 0 var(--stroke-color),
+                1px 1px 0 var(--stroke-color),
+                -1px 1px 0 var(--stroke-color),
+                0 -1px 0 var(--stroke-color);
+}
+
+@supports((text-stroke: 1px var(--stroke-color)) or (-webkit-text-stroke: 1px var(--stroke-color))) {
+  .image-decoration {
+    -webkit-text-stroke: 1px var(--stroke-color);
+    text-stroke: 1px var(--stroke-color);
+    text-shadow: none;
   }
 }
