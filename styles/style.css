@@ -26,16 +26,18 @@
   background-size: cover;
 }
 
+/*header*/
+
 .header {
   background-color: var(--background-color);
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: clamp(20.188rem, 19.2859rem + 3.8490vw, 22.75rem);
+  height: clamp(20.438rem, 19.5359rem + 3.8490vw, 23rem);
   justify-content: flex-end;
-  gap: 25px;
+  gap: 24px;
   margin: 100px auto;
-  padding: 14px 0;
+  padding: 25px 0;
   font-family: var(--accent-font);
 }
 
@@ -51,24 +53,66 @@
   gap: 20px;
 }
 
+.header__theme-menu {
+  padding-left: 20px;
+}
+
 .theme-menu__button {
+  text-transform: uppercase;
+  font-size: 14px;
   position: relative;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: .3s;
+  transition: .3s ease;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.theme-menu__button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform-origin: bottom left;
+  transform: scaleX(0);
+  transition: transform .3s ease;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button:hover::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:hover {
+  opacity: .6;
 }
 
 .theme-menu__button:disabled {
+  pointer-events: none;
   cursor: auto;
   opacity: .6;
 }
 
-.theme-menu__button:disabled:before {
+.theme-menu__button:disabled::before {
   content: '▶';
   position: absolute;
   left: -20px;
-  animation: choice .5s linear infinite alternate;
+  animation: choice .5s ease-in-out infinite alternate;
 }
 
 .header__tag {
@@ -86,7 +130,7 @@
   }
 
   to {
-    translate: 6px 0;
+    translate: 4px 0;
   }
 }
 
@@ -96,6 +140,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 50px;
 }
 
 .card {
@@ -104,38 +149,105 @@
 
 .card__title {
   font-size: 18px;
-  margin: 3px 10px;
+  margin: 5px 10px;
   font-weight: var(--font-weight-bold);
 }
 
 .card__image {
   max-width: 100%;
+  border: none;
 }
 
 .card__description {
   font-size: 18px;
   font-weight: var(--font-weight-regular);
+  line-height: 21px;
 }
 
 .card__description-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  padding: 25px;
+  gap: 27px;
+  padding: 22px 25px;
 }
 
-.card__like-button {
-  margin-left: auto;
+.card-controls {
   display: flex;
+  margin-left: auto;
+  align-items: flex-start;
+}
+
+.card__icon-button {
   background-color: transparent;
   border: none;
+  outline: none;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.like-icon {
+  box-sizing: content-box;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+}
+
+.button {
+  display: flex;
+  background-color: transparent;
+  cursor: pointer;
   gap: 12px;
+  position: relative;
+  transition: .3s ease;
+  border: 2px solid var(--accent-color);
+  padding: 9px 36px;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .button__text {
+  position: relative;
+  font-family: var(--accent-font);
   font-size: 14px;
-  border: 2px solid var(--accent-color);
-  padding: 9px 17px;
+  transition: .3s ease;
+  color: var(--mix-color);
+  mix-blend-mode: difference;
+  z-index: 1;
+}
+
+.blend-mode-svg {
+  color: var(--mix-color);
+  mix-blend-mode: difference;
+  z-index: 1;
+}
+
+.footer-svg-button {
+  width: 21px;
+  height: 21px;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 101%;
+  background-color: var(--accent-color);
+  transform-origin: bottom left;
+  transform: scaleX(0);
+  transition: transform .5s ease-in-out;
+}
+
+.button:hover::after {
+  transform: scaleX(1);
 }
 
 .image-wrapper {
@@ -162,5 +274,154 @@
     -webkit-text-stroke: 1px var(--stroke-color);
     text-stroke: 1px var(--stroke-color);
     text-shadow: none;
+  }
+}
+
+.save-btn {
+  gap: 8px;
+  margin: 50px auto;
+  padding: 15px 20px;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.core {
+  opacity: 0;
+  transition: .3s linear .03s;
+}
+
+.like-icon:hover .core{
+  opacity: 1;
+}
+
+.like-icon:active .core{
+  fill: var(--color-fill);
+}
+
+.main-body {
+  opacity: 0;
+  transition: .3s linear .03s;
+  transition-delay: .05s;
+}
+
+.like-icon:hover .main-body{
+  opacity: 1;
+}
+
+.like-icon:active .main-body{
+  fill: var(--color-fill);
+}
+
+.like-icon.is-liked .core {
+  opacity: 1;
+  fill: var(--color-fill);
+}
+
+.like-icon.is-liked .main-body {
+  opacity: 1;
+  fill: var(--color-fill);
+}
+
+.contour {
+  transition-delay: .06s;
+  transition: .3s linear .03s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--color-fill);
+}
+
+/*heart*/
+.like-icon.is-liked .heart {
+  animation-delay: .1s;
+  animation-fill-mode: revert;
+  animation: like-animation .3s ease-in;
+}
+
+
+@keyframes like-animation {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  100% {
+    transform: scale(1.1) translate(-5%, -5%);
+  }
+
+}
+
+.like-icon.is-liked .sparks {
+  animation-delay: .3s;
+  animation-fill-mode: revert;
+  animation: sparks .3s ease-in;
+}
+
+@keyframes sparks {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*dialog*/
+
+.dialog {
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+  width: clamp(21.313rem, 20.9609rem + 1.5023vw, 22.313rem);
+  padding: 30px;
+}
+
+.approve-btn {
+  color: var(--accent-color)
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.dialog__button {
+  width: 100%;
+  justify-content: center;
+}
+
+.dialog[open] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.dialog__text {
+  max-width: 234px;
+  flex: 1;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  line-height: 150%;
+}
+
+@media (width < 376px) {
+
+  .card__description-wrapper {
+    padding: 22px 26px;
+  }
+
+  .save-btn {
+    flex-direction: column;
+  }
+  .footer-svg-button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .card-controls {
+    margin-bottom: -1px;
   }
 }

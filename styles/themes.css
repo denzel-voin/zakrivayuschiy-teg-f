@@ -13,6 +13,8 @@
   repeating-linear-gradient(180deg, #d3d3d3 0 2px, rgb(0 0 0 / 0) 2px 4px),
   linear-gradient(180deg, #e7e7e7 0%, #e7e7e7 0.01%, #1a1a1a 100%);
   --stroke-color: #FFFF;
+  --mix-color: #FFF;
+  --color-fill: #FF0000;
 }
 
 :root.theme-dark {
@@ -24,6 +26,8 @@
   repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px),
   linear-gradient(180deg, #007f0c 0%, #007f0c 0.01%, #004306 100%);
   --stroke-color: #000000;
+  --mix-color: #00CC14;
+  --color-fill: #FF0000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,5 +40,7 @@
     repeating-linear-gradient(180deg, #000 0 2px, rgb(0 0 0 / 0) 2px 4px),
     linear-gradient(180deg, #007f0c 0%, #007f0c 0.01%, #004306 100%);
     --stroke-color: #000000;
+    --mix-color: #00CC14;
+    --color-fill: #FF0000;
   }
 }
