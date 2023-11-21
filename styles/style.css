@@ -155,7 +155,55 @@
 
 .card__image {
   max-width: 100%;
-  border: none;
+  max-height: 696px;
+}
+
+.card__image_first-card {
+  filter: hue-rotate(19deg) saturate(273%);
+  -webkit-filter: hue-rotate(19deg) saturate(273%);
+  -moz-filter: hue-rotate(19deg) saturate(273%);
+}
+
+.card__image_second-card {
+  filter: grayscale(50%) blur(1px) brightness(80%) saturate(120%) contrast(153%);
+  -webkit-filter: grayscale(50%) blur(1px) brightness(80%) saturate(120%) contrast(153%);
+  -moz-filter: grayscale(50%) blur(1px) brightness(80%) saturate(120%) contrast(153%);
+}
+
+.card__image_third-card {
+  filter: grayscale(26%) blur(1px) saturate(120%) contrast(153%);
+  -webkit-filter: grayscale(26%) blur(1px) saturate(120%) contrast(153%);
+  -moz-filter: grayscale(26%) blur(1px) saturate(120%) contrast(153%);
+}
+
+.card__image_fourth-card {
+  filter: sepia(10%) blur(1px) brightness(120%) invert(80%);
+  -webkit-filter: sepia(10%) blur(1px) brightness(120%) invert(80%);
+  -moz-filter: sepia(10%) blur(1px) brightness(120%) invert(80%);
+}
+
+.card__image_five-card {
+  filter: grayscale(50%) sepia(10%);
+  -webkit-filter: grayscale(50%) sepia(10%);
+  -moz-filter: grayscale(50%) sepia(10%);
+}
+
+.card__image_six-card {
+  filter: hue-rotate(180deg);
+  -webkit-filter: hue-rotate(180deg);
+  -moz-filter: hue-rotate(180deg);
+}
+
+.card__image_seven-card {
+  filter: grayscale(80%) sepia(15%) saturate(55%);
+  -webkit-filter: grayscale(80%) sepia(15%) saturate(55%);
+  -moz-filter: grayscale(80%) sepia(15%) saturate(55%);
+}
+
+.card__image_eight-card {
+  filter: grayscale(20%) brightness(90%) opacity(90%);
+  -webkit-filter: grayscale(20%) brightness(90%) opacity(90%);
+  -moz-filter: grayscale(20%) brightness(90%) opacity(90%);
 }
 
 .card__description {
@@ -169,6 +217,7 @@
   flex-direction: column;
   gap: 27px;
   padding: 22px 25px;
+  margin-bottom: 1px;
 }
 
 .card-controls {
@@ -423,5 +472,9 @@
 
   .card-controls {
     margin-bottom: -1px;
+  }
+
+  .card__image {
+    max-height: 371px;
   }
 }
