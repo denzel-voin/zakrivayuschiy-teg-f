@@ -64,7 +64,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: .3s ease;
+  transition: opacity .3s ease;
 }
 
 .theme-menu__list {
@@ -92,10 +92,7 @@
 
 .theme-menu__button:focus {
   outline: none;
-}
-
-.theme-menu__button:hover::after {
-  transform: scaleX(1);
+  opacity: .6;
 }
 
 .theme-menu__button:hover {
@@ -124,16 +121,6 @@
   text-transform: uppercase;
 }
 
-@keyframes choice {
-  from {
-    translate: 0 0;
-  }
-
-  to {
-    translate: 4px 0;
-  }
-}
-
 /*section cards*/
 
 .section {
@@ -150,57 +137,66 @@
 .card__title {
   font-size: 18px;
   margin: 5px 10px;
-  font-weight: var(--font-weight-bold);
+  font-variation-settings: 'wght' var(--font-weight-bold);
+}
+
+.card__image-wrapper {
+  overflow: hidden;
+  max-height: 696px;
+  position: relative;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .card__image {
   max-width: 100%;
-  max-height: 696px;
+  border: none;
+  margin-bottom: -5px;
 }
 
-.card__image_first-card {
+.saturation-filter {
   filter: hue-rotate(19deg) saturate(273%);
   -webkit-filter: hue-rotate(19deg) saturate(273%);
   -moz-filter: hue-rotate(19deg) saturate(273%);
 }
 
-.card__image_second-card {
+.grayscale-filter {
   filter: grayscale(50%) blur(1px) brightness(80%) saturate(120%) contrast(153%);
   -webkit-filter: grayscale(50%) blur(1px) brightness(80%) saturate(120%) contrast(153%);
   -moz-filter: grayscale(50%) blur(1px) brightness(80%) saturate(120%) contrast(153%);
 }
 
-.card__image_third-card {
+.contrast-filter {
   filter: grayscale(26%) blur(1px) saturate(120%) contrast(153%);
   -webkit-filter: grayscale(26%) blur(1px) saturate(120%) contrast(153%);
   -moz-filter: grayscale(26%) blur(1px) saturate(120%) contrast(153%);
 }
 
-.card__image_fourth-card {
+.invert-filter {
   filter: sepia(10%) blur(1px) brightness(120%) invert(80%);
   -webkit-filter: sepia(10%) blur(1px) brightness(120%) invert(80%);
   -moz-filter: sepia(10%) blur(1px) brightness(120%) invert(80%);
 }
 
-.card__image_five-card {
+.sepia-filter {
   filter: grayscale(50%) sepia(10%);
   -webkit-filter: grayscale(50%) sepia(10%);
   -moz-filter: grayscale(50%) sepia(10%);
 }
 
-.card__image_six-card {
+.hue-rotate-filter {
   filter: hue-rotate(180deg);
   -webkit-filter: hue-rotate(180deg);
   -moz-filter: hue-rotate(180deg);
 }
 
-.card__image_seven-card {
+.grayscale-saturate-filter {
   filter: grayscale(80%) sepia(15%) saturate(55%);
   -webkit-filter: grayscale(80%) sepia(15%) saturate(55%);
   -moz-filter: grayscale(80%) sepia(15%) saturate(55%);
 }
 
-.card__image_eight-card {
+.brightness-filter {
   filter: grayscale(20%) brightness(90%) opacity(90%);
   -webkit-filter: grayscale(20%) brightness(90%) opacity(90%);
   -moz-filter: grayscale(20%) brightness(90%) opacity(90%);
@@ -208,7 +204,7 @@
 
 .card__description {
   font-size: 18px;
-  font-weight: var(--font-weight-regular);
+  font-variation-settings: 'wght' var(--font-weight-regular);
   line-height: 21px;
 }
 
@@ -299,10 +295,6 @@
   transform: scaleX(1);
 }
 
-.image-wrapper {
-  position: relative;
-}
-
 .image-decoration {
   position: absolute;
   top: 25px;
@@ -336,87 +328,6 @@
 
 .sparks {
   opacity: 0;
-}
-
-.core {
-  opacity: 0;
-  transition: .3s linear .03s;
-}
-
-.like-icon:hover .core{
-  opacity: 1;
-}
-
-.like-icon:active .core{
-  fill: var(--color-fill);
-}
-
-.main-body {
-  opacity: 0;
-  transition: .3s linear .03s;
-  transition-delay: .05s;
-}
-
-.like-icon:hover .main-body{
-  opacity: 1;
-}
-
-.like-icon:active .main-body{
-  fill: var(--color-fill);
-}
-
-.like-icon.is-liked .core {
-  opacity: 1;
-  fill: var(--color-fill);
-}
-
-.like-icon.is-liked .main-body {
-  opacity: 1;
-  fill: var(--color-fill);
-}
-
-.contour {
-  transition-delay: .06s;
-  transition: .3s linear .03s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--color-fill);
-}
-
-/*heart*/
-.like-icon.is-liked .heart {
-  animation-delay: .1s;
-  animation-fill-mode: revert;
-  animation: like-animation .3s ease-in;
-}
-
-
-@keyframes like-animation {
-  0% {
-    transform: scale(1) translate(0, 0);
-  }
-
-  100% {
-    transform: scale(1.1) translate(-5%, -5%);
-  }
-
-}
-
-.like-icon.is-liked .sparks {
-  animation-delay: .3s;
-  animation-fill-mode: revert;
-  animation: sparks .3s ease-in;
-}
-
-@keyframes sparks {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
 }
 
 /*dialog*/
