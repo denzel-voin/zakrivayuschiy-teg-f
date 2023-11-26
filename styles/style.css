@@ -227,7 +227,7 @@
   border: none;
   outline: none;
   cursor: pointer;
-  transition: .3s ease;
+  transition: color .3s ease;
 }
 
 .like-icon {
@@ -244,9 +244,14 @@
   cursor: pointer;
   gap: 12px;
   position: relative;
-  transition: .3s ease;
+  transition: color .3s ease;
   border: 2px solid var(--accent-color);
   padding: 9px 36px;
+}
+
+.card__like-button {
+  justify-content: center;
+  max-width: 130px;
 }
 
 .button:focus {
@@ -257,7 +262,7 @@
   position: relative;
   font-family: var(--accent-font);
   font-size: 14px;
-  transition: .3s ease;
+  transition: color .3s ease;
   color: var(--mix-color);
   mix-blend-mode: difference;
   z-index: 1;
